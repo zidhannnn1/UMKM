@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil UMKM Desa Klopo</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #198754;
+            /* Warna Hijau khas Desa */
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1593537898517-58bf546a94b8?q=80&w=1920') center/cover;
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 40px;
+        }
+
+        /* Card Hover Effect */
+        .umkm-card {
+            transition: all 0.3s ease-in-out;
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .umkm-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling Badge */
+        .category-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 2;
+        }
+
+        /* Custom WA Button */
+        .btn-wa {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            font-weight: 600;
+        }
+
+        .btn-wa:hover {
+            background-color: #128C7E;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR (Simulasi Navbar Desa) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-success" href="#">
+                <i class="bi bi-tree-fill me-2"></i>Desa KLOPO
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">PKK</a></li>
+                    <li class="nav-item"><a class="nav-link active text-success fw-bold" href="#">UMKM</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold mb-3">Katalog UMKM Desa Klopo</h1>
+            <p class="lead mb-0">Mendukung dan memajukan produk-produk unggulan karya warga desa.</p>
+        </div>
+    </header>
+
+    <!-- KONTEN UTAMA: GRID UMKM -->
+    <main class="container mb-5">
+        <div class="row g-4">
+
+            <!-- UMKM 1: Kuliner -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card umkm-card h-100 shadow-sm">
+                    <span class="badge bg-danger category-badge">Kuliner</span>
+                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=600"
+                        class="card-img-top" alt="Kopi Luwak" style="height: 220px; object-fit: cover;">
+
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Kopi Luwak Asli Klopo</h5>
+                        <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Pak Budi
+                            Santoso</p>
+                        <p class="card-text text-muted mb-3 flex-grow-1">Menyediakan kopi luwak asli hasil budidaya
+                            lokal dengan cita rasa premium khas daerah kami. Tersedia dalam bentuk bubuk dan biji
+                            matang.</p>
+
+                        <!-- Embed Google Maps -->
+                        <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d989.3359815253975!2d110.12591638957865!3d-7.3152068619086945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a9d003c6154fd%3A0xeb251acad5c3773d!2sBengkel%20PJM!5e0!3m2!1sid!2sid!4v1783567789480!5m2!1sid!2sid"
+                                allowfullscreen="" loading="lazy"
+                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+
+                        <!-- Tombol WA -->
+                        <a href="https://wa.me/6281234567890?text=Halo%20Pak%20Budi,%20saya%20tertarik%20membeli%20Kopi%20Luwaknya."
+                            target="_blank"
+                            class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
+                            <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UMKM 2: Kerajinan -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card umkm-card h-100 shadow-sm">
+                    <span class="badge bg-warning text-dark category-badge">Kerajinan</span>
+                    <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=600"
+                        class="card-img-top" alt="Kerajinan Bambu" style="height: 220px; object-fit: cover;">
+
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Anyaman Bambu Lestari</h5>
+                        <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Ibu Siti
+                            Kholifah</p>
+                        <p class="card-text text-muted mb-3 flex-grow-1">Kerajinan tangan dari bambu pilihan.
+                            Memproduksi besek, tampah, dan keranjang serbaguna dengan kualitas yang kuat dan tahan lama.
+                        </p>
+
+                        <!-- Embed Google Maps -->
+                        <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.51817721833!2d110.255556!3d-7.483333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjknMDAuMCJTIDExMMKwMTUnMjAuMCJF!5e0!3m2!1sid!2sid!4v1700000000000"
+                                allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+
+                        <!-- Tombol WA -->
+                        <a href="https://wa.me/6281234567891?text=Halo%20Ibu%20Siti,%20mau%20tanya%20harga%20kerajinan%20bambunya."
+                            target="_blank"
+                            class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
+                            <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UMKM 3: Pertanian -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card umkm-card h-100 shadow-sm">
+                    <span class="badge bg-success category-badge">Agrobisnis</span>
+                    <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=600"
+                        class="card-img-top" alt="Sayur Organik" style="height: 220px; object-fit: cover;">
+
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Sayur Organik Segar</h5>
+                        <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Kelompok
+                            Tani Makmur</p>
+                        <p class="card-text text-muted mb-3 flex-grow-1">Sayur mayur segar bebas pestisida langsung dari
+                            kebun warga. Dipanen setiap pagi untuk menjaga kualitas gizi dan kesegarannya.</p>
+
+                        <!-- Embed Google Maps -->
+                        <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.51817721833!2d110.255556!3d-7.483333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjknMDAuMCJTIDExMMKwMTUnMjAuMCJF!5e0!3m2!1sid!2sid!4v1700000000000"
+                                allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+
+                        <!-- Tombol WA -->
+                        <a href="https://wa.me/6281234567892?text=Halo,%20apakah%20sayur%20organiknya%20masih%20tersedia?"
+                            target="_blank"
+                            class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
+                            <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Desa Klopo. All Rights Reserved.</p>
+            <small class="text-secondary">Kecamatan Tegalrejo, Kabupaten Magelang, Provinsi Jawa Tengah</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle (Untuk fitur responsif navbar dll) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
