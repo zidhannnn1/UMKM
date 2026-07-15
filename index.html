@@ -15,7 +15,6 @@
     <style>
         :root {
             --primary-color: #198754;
-            /* Warna Hijau khas Desa */
         }
 
         body {
@@ -23,7 +22,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Hero Section */
         .hero-section {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1593537898517-58bf546a94b8?q=80&w=1920') center/cover;
             color: white;
@@ -31,7 +29,6 @@
             margin-bottom: 40px;
         }
 
-        /* Card Hover Effect */
         .umkm-card {
             transition: all 0.3s ease-in-out;
             border: none;
@@ -44,7 +41,6 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Styling Badge */
         .category-badge {
             position: absolute;
             top: 15px;
@@ -52,7 +48,6 @@
             z-index: 2;
         }
 
-        /* Custom WA Button */
         .btn-wa {
             background-color: #25D366;
             color: white;
@@ -69,7 +64,7 @@
 
 <body>
 
-    <!-- NAVBAR (Simulasi Navbar Desa) -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold text-success" href="#">
@@ -99,31 +94,49 @@
 
     <!-- KONTEN UTAMA: GRID UMKM -->
     <main class="container mb-5">
-        <div class="row g-4">
+
+        <!-- FITUR SEARCH & FILTER -->
+        <div class="row mb-4 justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-3 d-flex flex-column flex-md-row gap-2">
+                        <!-- Input Pencarian -->
+                        <div class="input-group">
+                            <span class="input-group-text bg-white text-success border-end-0"><i
+                                    class="bi bi-search"></i></span>
+                            <input type="text" id="searchInput" class="form-control border-start-0 ps-0"
+                                placeholder="Cari nama UMKM atau produk...">
+                        </div>
+                        <!-- Dropdown Filter Kategori -->
+                        <select id="categoryFilter" class="form-select w-auto" style="min-width: 200px;">
+                            <option value="semua">Semua Kategori</option>
+                            <option value="Kuliner">Kuliner</option>
+                            <option value="Kerajinan">Kerajinan</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4" id="umkmContainer">
 
             <!-- UMKM 1: Mbak Riyah -->
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 umkm-item" data-kategori="Kuliner" data-nama="pangsit mbak riyah">
                 <div class="card umkm-card h-100 shadow-sm">
                     <span class="badge bg-success category-badge">Kuliner</span>
                     <img src="Assets/Pangsit.jpeg" class="card-img-top" alt="Pangsit"
                         style="height: 220px; object-fit: cover;">
-
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">Pangsit Mbak Riyah</h5>
                         <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Mbak Riyah
                         </p>
                         <p class="card-text text-muted mb-3 flex-grow-1">Memproduksi stik dan pangsit. Harga mulai
                             Rp1.000, Rp5.000, hingga Rp30.000/kg. Kapasitas produksi sekitar 7–13 kg per hari.</p>
-
-                        <!-- Embed Google Maps -->
                         <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.661588171385!2d110.2785858!3d-7.4438815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a87006397b4ff%3A0x4d1011ff69bc7122!2sPangsit%20dan%20Stik%20Mbak%20Riyah!5e1!3m2!1sid!2sid!4v1784034717625!5m2!1sid!2sid"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
-
-                        <!-- Tombol WA -->
                         <a href="https://wa.me/628813807833" target="_blank"
                             class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
                             <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
@@ -133,31 +146,23 @@
             </div>
 
             <!-- UMKM 2: Kerajinan -->
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 umkm-item" data-kategori="Kerajinan"
+                data-nama="kerajinan kayu pak roikhan">
                 <div class="card umkm-card h-100 shadow-sm">
                     <span class="badge bg-danger category-badge">Kerajinan</span>
                     <img src="Assets/Kerajinan Kayu.jpeg" class="card-img-top" alt="Kerajinan"
                         style="height: 220px; object-fit: cover;">
-
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">Kerajinan Kayu Pak Roikhan</h5>
                         <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Pak Roikhan
                         </p>
-                        <p class="card-text text-muted mb-3 flex-grow-1">KProduksi kerajinan kayu. Usaha telah berjalan
-                            ±20 tahun. Bahan baku berasal dari Pucang, kemudian diolah dan disetor kembali ke Pucang.
-                            Harga tergantung ukuran (contoh ukuran 20 cm sekitar Rp20.000). Pengemasan menggunakan
-                            kardus per kodi, minimal pemesanan 50 kodi.
-                        </p>
-
-                        <!-- Embed Google Maps -->
+                        <p class="card-text text-muted mb-3 flex-grow-1">Produksi kerajinan kayu. Usaha telah berjalan
+                            ±20 tahun. Harga tergantung ukuran (contoh ukuran 20 cm sekitar Rp20.000).</p>
                         <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.6714764071467!2d110.27719169999999!3d-7.442687399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a870024cd8cc1%3A0xa7dc08983490db16!2sKerajinan%20Kayu%20Pak%20Roikhan!5e1!3m2!1sid!2sid!4v1784034330957!5m2!1sid!2sid"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
-
-                        <!-- Tombol WA -->
                         <a href="https://wa.me/6282314890213" target="_blank"
                             class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
                             <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
@@ -167,28 +172,22 @@
             </div>
 
             <!-- UMKM 3: Bu Nafisah -->
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 umkm-item" data-kategori="Kuliner" data-nama="potil bu nafisah">
                 <div class="card umkm-card h-100 shadow-sm">
                     <span class="badge bg-success category-badge">Kuliner</span>
                     <img src="Assets/Potil.jpeg" class="card-img-top" alt="Potil"
                         style="height: 220px; object-fit: cover;">
-
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">Potil Bu Nafisah</h5>
                         <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Bu Nafisah
                         </p>
                         <p class="card-text text-muted mb-3 flex-grow-1">Memproduksi potil dan samier. Harga sekitar
                             Rp35.000/kg.</p>
-
-                        <!-- Embed Google Maps -->
                         <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.6606183917834!2d110.2782696!3d-7.443998599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a8700338d5fd1%3A0xeeb9023107a465e9!2sPotil%20dan%20Samier%20Bu%20Nafisah!5e1!3m2!1sid!2sid!4v1784034944737!5m2!1sid!2sid"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
-
-                        <!-- Tombol WA -->
                         <a href="https://wa.me/628812773085" target="_blank"
                             class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
                             <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
@@ -198,28 +197,22 @@
             </div>
 
             <!-- UMKM 4: Regginang -->
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 umkm-item" data-kategori="Kuliner" data-nama="rengginang bu munijah">
                 <div class="card umkm-card h-100 shadow-sm">
                     <span class="badge bg-success category-badge">Kuliner</span>
                     <img src="Assets/Regginang.jpeg" class="card-img-top" alt="Regginang"
                         style="height: 220px; object-fit: cover;">
-
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">Regginang Bu Munijah</h5>
                         <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Bu Munijah
                         </p>
                         <p class="card-text text-muted mb-3 flex-grow-1">Memproduksi rengginang. Informasi harga dan
                             kapasitas produksi belum tersedia.</p>
-
-                        <!-- Embed Google Maps -->
                         <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.663988124335!2d110.27859679999999!3d-7.443591700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a87007b4a929b%3A0x603af48e328915cc!2sRengginang%20Bu%20Munjiah!5e1!3m2!1sid!2sid!4v1784035132229!5m2!1sid!2sid"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
-
-                        <!-- Tombol WA -->
                         <a href="https://wa.me/6285740574133" target="_blank"
                             class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
                             <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
@@ -229,29 +222,23 @@
             </div>
 
             <!-- UMKM 5: Kerajinan Pak Samsun -->
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 umkm-item" data-kategori="Kerajinan"
+                data-nama="kerajinan tangan pak samsun">
                 <div class="card umkm-card h-100 shadow-sm">
                     <span class="badge bg-danger category-badge">Kerajinan</span>
                     <img src="Assets/Kerajinan Tangan.jpeg" class="card-img-top" alt="Kerajinan"
                         style="height: 220px; object-fit: cover;">
-
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">Kerajinan Tangan Pak Samsun</h5>
                         <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Pak Samsun
                         </p>
                         <p class="card-text text-muted mb-3 flex-grow-1">UMKM ini memproduksi kerajinan kayu seperti
-                            alat dapur dan sovenir. produk yang dihasilkan berupa: Talenan Rp 3.500-5.000/pcs, Sotil Rp
-                            17.000/kodi, Centong Kecil Rp 15.000/kodi, Talenan tanpa kaki Rp 3.000/pcs. </p>
-
-                        <!-- Embed Google Maps -->
+                            alat dapur dan sovenir. produk yang dihasilkan berupa: Talenan Rp 3.500-5.000/pcs, dll.</p>
                         <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3642.0133780426663!2d110.27235499999999!3d-7.437954600000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a870022db6adf%3A0xe4d1955e69ec2d9d!2sPengrajin%20Kayu%20Alat%20Dapur%20Pak%20Samsun!5e1!3m2!1sid!2sid!4v1784082946950!5m2!1sid!2sid"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
-
-                        <!-- Tombol WA -->
                         <a href="https://wa.me/6285702426264" target="_blank"
                             class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
                             <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
@@ -261,29 +248,22 @@
             </div>
 
             <!-- UMKM 6: Rengginang Ibu Dimiyati-->
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 umkm-item" data-kategori="Kuliner" data-nama="rengginang bu dimiyati">
                 <div class="card umkm-card h-100 shadow-sm">
                     <span class="badge bg-success category-badge">Kuliner</span>
                     <img src="Assets/Rengginang Super.jpeg" class="card-img-top" alt="Rengginang"
                         style="height: 220px; object-fit: cover;">
-
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">Regginang Bu Dimiyati</h5>
                         <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Bu Dimiyati
                         </p>
                         <p class="card-text text-muted mb-3 flex-grow-1">UMKM ini bergerak dibidang makanan ringan
-                            seperti Rengginan, Kereng (Semprong), Sagon. Harga produk tersebut yaitu, Rengginan (Rp
-                            14.000/bungkus), Kereng (Rp 130.000/karton/3kg), Sagon (Rp 130.000/karton/3kg)</p>
-
-                        <!-- Embed Google Maps -->
+                            seperti Rengginan, Kereng (Semprong), Sagon.</p>
                         <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d227.6258931275003!2d110.2723648!3d-7.4378447!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a87000f8c0d5d%3A0x643bc1a1c4c8856d!2sRengginang%20Bu%20Dimiyati!5e1!3m2!1sid!2sid!4v1784083110046!5m2!1sid!2sid"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
-
-                        <!-- Tombol WA -->
                         <a href="https://wa.me/6285811467196" target="_blank"
                             class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
                             <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
@@ -293,30 +273,23 @@
             </div>
 
             <!-- UMKM 7: Susu Kedelai -->
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 umkm-item" data-kategori="Kuliner"
+                data-nama="susu kedelai bu islamiyah">
                 <div class="card umkm-card h-100 shadow-sm">
                     <span class="badge bg-success category-badge">Kuliner</span>
                     <img src="Assets/Susu Kedelai.jpeg" class="card-img-top" alt="Susu Kedelai"
                         style="height: 220px; object-fit: cover;">
-
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">Susu Kedelai Bu Islamiyah</h5>
                         <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Bu
-                            Islamiyah
-                        </p>
+                            Islamiyah</p>
                         <p class="card-text text-muted mb-3 flex-grow-1">UMKM memproduksi susu kedelai dengan berbagi
-                            varian rasa seperti, stroberi, melon, coklat, vanilai, dengan harga penjulan Rp
-                            1.000/bungkus</p>
-
-                        <!-- Embed Google Maps -->
+                            varian rasa seperti, stroberi, melon, coklat, vanilai.</p>
                         <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3642.011951515864!2d110.2657645!3d-7.4381265!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a870075510ac1%3A0x86ae6d386eaaf76b!2sSusu%20Kedelai%20Gendol!5e1!3m2!1sid!2sid!4v1784088006214!5m2!1sid!2sid"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
-
-                        <!-- Tombol WA -->
                         <a href="https://wa.me/6281225091348" target="_blank"
                             class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
                             <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
@@ -326,30 +299,23 @@
             </div>
 
             <!-- UMKM 8: Mitra Berkah Untir-Untir -->
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 umkm-item" data-kategori="Kuliner"
+                data-nama="mitra berkah untir untir">
                 <div class="card umkm-card h-100 shadow-sm">
                     <span class="badge bg-success category-badge">Kuliner</span>
                     <img src="Assets/Untir.jpeg" class="card-img-top" alt="Untir-Untir"
                         style="height: 220px; object-fit: cover;">
-
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">Mitra Berkah Untir-Untir</h5>
                         <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Bu
-                            Mubarokah
-                        </p>
+                            Mubarokah</p>
                         <p class="card-text text-muted mb-3 flex-grow-1">UMKM ini bergerak dibidang makanan ringan yaitu
-                            berupa untir-untir, yang memiliki 2 varian rasa berupa rasa manis dan gurih dengan harga
-                            yang sama. Harga untir-untir muali dari Rp 1.000/pcs dan Rp 60.000/1kg.</p>
-
-                        <!-- Embed Google Maps -->
+                            berupa untir-untir manis dan gurih.</p>
                         <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3642.0110303554834!2d110.27019349999999!3d-7.4382375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a870026de11eb%3A0xabc6a20f5b604b67!2sMitra%20Berkah%20Untir-Untir!5e1!3m2!1sid!2sid!4v1784088214052!5m2!1sid!2sid"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
-
-                        <!-- Tombol WA -->
                         <a href="https://wa.me/6285546428682" target="_blank"
                             class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
                             <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
@@ -359,30 +325,22 @@
             </div>
 
             <!-- UMKM 9: Dapoer Rahadjeng -->
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 umkm-item" data-kategori="Kuliner" data-nama="dapoer rahadjeng">
                 <div class="card umkm-card h-100 shadow-sm">
                     <span class="badge bg-success category-badge">Kuliner</span>
                     <img src="Assets/Dapoer.jpeg" class="card-img-top" alt="Dapoer Rahadjeng"
                         style="height: 220px; object-fit: cover;">
-
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">Dapoer Rahadjeng</h5>
                         <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Bu Zulaikah
                         </p>
                         <p class="card-text text-muted mb-3 flex-grow-1">UMKM ini bergerak dibidang snack makanan ringan
-                            dan makanan berat seperti, bolu kukus, apem, risoles, arem-arem, serta makanan berat berupa
-                            nasi kuning, nasi uduk, nasi box, dll. Harga produk mulai dari Rp 1.500 hingga Rp 50.000.
-                        </p>
-
-                        <!-- Embed Google Maps -->
+                            dan makanan berat.</p>
                         <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d910.5001828789411!2d110.28027200000001!3d-7.4394784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a870028ce7271%3A0xe72702fc9732ea53!2sDapoer%20Rahadjeng!5e1!3m2!1sid!2sid!4v1784090124425!5m2!1sid!2sid"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
-
-                        <!-- Tombol WA -->
                         <a href="https://wa.me/6282322000324" target="_blank"
                             class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
                             <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
@@ -392,62 +350,23 @@
             </div>
 
             <!-- UMKM 10: Vegan hut & Kopra -->
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 umkm-item" data-kategori="Kuliner" data-nama="vegan hut kopra">
                 <div class="card umkm-card h-100 shadow-sm">
                     <span class="badge bg-success category-badge">Kuliner</span>
                     <img src="Assets/Vegan Hut.jpeg" class="card-img-top" alt="Vegan hut & Kopra"
                         style="height: 220px; object-fit: cover;">
-
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">Vegan hut & Kopra</h5>
                         <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Pak Muh.
-                            Muslih
-                        </p>
+                            Muslih</p>
                         <p class="card-text text-muted mb-3 flex-grow-1">UMKM ini bergerak pada bidang pengembangan
-                            porang menjadi makan yang menyerupai daging dan bakso, serta UMKM ini memproduksi Kopra.
-                            untuk harga kopra sendiri Rp 12.500 - Rp 13.500/kg</p>
-
-                        <!-- Embed Google Maps -->
+                            porang dan memproduksi Kopra.</p>
                         <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d910.5022494862947!2d110.2795854!3d-7.4384824!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7aeb2047f48743%3A0xf8ef01db819b71cb!2sVeganHut%20-%20PORANG%20FOOD!5e1!3m2!1sid!2sid!4v1784090353036!5m2!1sid!2sid"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
-
-                        <!-- Tombol WA -->
                         <a href="https://wa.me/6282135022509" target="_blank"
-                            class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
-                            <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- UMKM 4: Regginang -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card umkm-card h-100 shadow-sm">
-                    <span class="badge bg-success category-badge">Kuliner</span>
-                    <img src="Assets/Regginang.jpeg" class="card-img-top" alt="Sayur Organik"
-                        style="height: 220px; object-fit: cover;">
-
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold">Regginang Bu Munijah</h5>
-                        <p class="text-success small fw-semibold mb-2"><i class="bi bi-person-fill me-1"></i>Bu Munijah
-                        </p>
-                        <p class="card-text text-muted mb-3 flex-grow-1">Memproduksi rengginang. Informasi harga dan
-                            kapasitas produksi belum tersedia.</p>
-
-                        <!-- Embed Google Maps -->
-                        <div class="ratio ratio-16x9 mb-3 rounded overflow-hidden">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.663988124335!2d110.27859679999999!3d-7.443591700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a87007b4a929b%3A0x603af48e328915cc!2sRengginang%20Bu%20Munjiah!5e1!3m2!1sid!2sid!4v1784035132229!5m2!1sid!2sid"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                        </div>
-
-                        <!-- Tombol WA -->
-                        <a href="https://wa.me/6285740574133" target="_blank"
                             class="btn btn-wa w-100 d-flex justify-content-center align-items-center gap-2 py-2 mt-auto">
                             <i class="bi bi-whatsapp fs-5"></i> Hubungi Penjual
                         </a>
@@ -466,8 +385,40 @@
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS Bundle (Untuk fitur responsif navbar dll) -->
+    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SCRIPT FITUR SEARCH & FILTER (Versi Kebal Error) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('searchInput');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const umkmItems = document.querySelectorAll('.umkm-item');
+
+            function filterUMKM() {
+                const kataKunci = searchInput.value.toLowerCase();
+                const kategoriPilihan = categoryFilter.value;
+
+                umkmItems.forEach(function (item) {
+                    // Pakai pengaman (ternary operator) biar gak error kalau datanya kosong
+                    const namaUMKM = item.getAttribute('data-nama') ? item.getAttribute('data-nama').toLowerCase() : '';
+                    const kategoriUMKM = item.getAttribute('data-kategori') ? item.getAttribute('data-kategori') : '';
+
+                    const cocokNama = namaUMKM.includes(kataKunci);
+                    const cocokKategori = (kategoriPilihan === 'semua') || (kategoriUMKM === kategoriPilihan);
+
+                    if (cocokNama && cocokKategori) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+
+            searchInput.addEventListener('input', filterUMKM);
+            categoryFilter.addEventListener('change', filterUMKM);
+        });
+    </script>
 </body>
 
 </html>
