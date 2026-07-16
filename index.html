@@ -75,9 +75,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">PKK</a></li>
                     <li class="nav-item"><a class="nav-link active text-success fw-bold" href="#">UMKM</a></li>
                 </ul>
             </div>
@@ -388,7 +385,7 @@
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- SCRIPT FITUR SEARCH & FILTER (Versi Kebal Error) -->
+    <!-- SCRIPT FITUR SEARCH & FILTER -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const searchInput = document.getElementById('searchInput');
@@ -400,7 +397,6 @@
                 const kategoriPilihan = categoryFilter.value;
 
                 umkmItems.forEach(function (item) {
-                    // Pakai pengaman (ternary operator) biar gak error kalau datanya kosong
                     const namaUMKM = item.getAttribute('data-nama') ? item.getAttribute('data-nama').toLowerCase() : '';
                     const kategoriUMKM = item.getAttribute('data-kategori') ? item.getAttribute('data-kategori') : '';
 
